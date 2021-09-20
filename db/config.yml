@@ -6,7 +6,6 @@ default: &default
   pool: 5
   host: localhost
   username: postgres
-  password: pwgqsyx2
 
 development:
   <<: *default
