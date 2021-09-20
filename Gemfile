@@ -1,52 +1,33 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-gem 'activerecord'
-# Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
+gem 'sequel', '~> 5.32.0'
+
 gem 'puma', '~> 4.3'
 
-gem 'kaminari', '~> 1.2.1'
+gem 'sinatra', '~> 2.0.0', require: 'sinatra/base'
+gem 'sinatra-contrib', '~> 2.0.0'
+
+gem 'activesupport', '~> 6.0.0', require: false
 gem 'fast_jsonapi', '~> 1.5'
-gem 'rails-i18n', '~> 6.0.0'
+
+gem 'i18n', '~> 1.8.2'
+gem 'config', '~> 2.2.1'
 
 gem 'dry-initializer', '~> 3.0.3'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-gem 'jwt', '~> 2.2.1'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'dry-validation', '~> 1.5.0'
 
 gem 'require_all'
 gem 'standalone_migrations'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv'
-  gem 'factory_bot'
-  gem 'rspec'
-end
-
-group :development do
-  gem 'listen', '~> 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
 group :test do
-  gem 'database_cleaner-active_record', '~> 1.8.0'
+  gem 'factory_bot', '~> 5.2.0'
+  gem 'rack-test', '~> 1.1.0'
+  gem 'rspec', '~> 3.9.0'
+  gem 'database_cleaner-sequel', '~> 1.8.0'
 end
