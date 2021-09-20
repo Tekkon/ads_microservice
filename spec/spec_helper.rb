@@ -20,6 +20,7 @@ Bundler.require(:default, :development, :test)
 
 require_relative '../app/models/application_record'
 require_all 'app/models'
+require_all 'spec/support'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

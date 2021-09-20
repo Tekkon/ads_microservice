@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  host: localhost
+  username: postgres
+  password: pwgqsyx2
+
+development:
+  <<: *default
+  database: ads_development
+
+test:
+  <<: *default
+  database: ads_test
+
+production:
+  <<: *default
+  database: ads_production
+  username: ads
