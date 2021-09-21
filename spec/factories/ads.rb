@@ -3,6 +3,6 @@ FactoryBot.define do
     title { 'Ad title' }
     description { 'Ad description' }
     city { 'City' }
-    user
+    user_id { 101 }
   end
 end

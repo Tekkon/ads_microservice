@@ -1,7 +1,4 @@
 # frozen_string_literal: true
-
-require 'dry-initializer'
-
 module BasicService
   module ClassMethods
     def call(*args)

@@ -1,12 +1,7 @@
-# frozen_string_literal: true
-
-require_relative '../../../app/services/basic_service'
-require_all 'app/services/ads'
-
 RSpec.describe Ads::CreateService do
   subject { described_class }
 
-  let(:user) { create(:user) }
+  let(:user_id) { 101 }
 
   context 'valid parameters' do
     let(:ad_params) do
@@ -18,21 +13,14 @@ RSpec.describe Ads::CreateService do
     end
 
     it 'creates a new ad' do
-      expect { subject.call(ad: ad_params, user: user) }
-        .to change { user.ads.count }.from(0).to(1)
+      expect { subject.call(ad: ad_params, user_id: user_id) }
+        .to change { Ad.count }.from(0).to(1)
     end
 
     it 'assigns ad' do
-      result = subject.call(ad: ad_params, user: user)
+      result = subject.call(ad: ad_params, user_id: user_id)
 
       expect(result.ad).to be_kind_of(Ad)
-    end
-
-    it 'enqueues geocoding job' do
-      # ActiveJob::Base.queue_adapter = :test
-      # subject.call(ad: ad_params, user: user)
-      #
-      # expect(Ads::GeocodingJob).to have_been_enqueued.with(kind_of(Ad))
     end
   end
 
@@ -45,22 +33,15 @@ RSpec.describe Ads::CreateService do
       }
     end
 
-    it('does not create ad') do
-      expect { subject.call(ad: ad_params, user: user) }
+    it 'does not create ad' do
+      expect { subject.call(ad: ad_params, user_id: user_id) }
         .not_to change { Ad.count }
     end
 
     it 'assigns ad' do
-      result = subject.call(ad: ad_params, user: user)
+      result = subject.call(ad: ad_params, user_id: user_id)
 
       expect(result.ad).to be_kind_of(Ad)
-    end
-
-    it 'does not enqueue geocoding job' do
-      # ActiveJob::Base.queue_adapter = :test
-      # subject.call(ad: ad_params, user: user)
-      #
-      # expect(Ads::GeocodingJob).not_to have_been_enqueued
     end
   end
 end

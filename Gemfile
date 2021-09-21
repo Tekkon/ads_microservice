@@ -23,7 +23,6 @@ gem 'dry-initializer', '~> 3.0.3'
 gem 'dry-validation', '~> 1.5.0'
 
 gem 'require_all'
-gem 'standalone_migrations'
 
 gem 'dotenv'
 
