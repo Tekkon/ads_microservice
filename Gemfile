@@ -25,6 +25,8 @@ gem 'dry-validation', '~> 1.5.0'
 gem 'require_all'
 gem 'standalone_migrations'
 
+gem 'dotenv'
+
 group :test do
   gem 'factory_bot', '~> 5.2.0'
   gem 'rack-test', '~> 1.1.0'

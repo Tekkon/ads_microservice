@@ -1,5 +1,5 @@
-require 'standalone_migrations'
-require 'dotenv'
+# frozen_string_literal: true
 
-Dotenv.load
-StandaloneMigrations::Tasks.load_tasks
+ENV['RACK_ENV'] ||= 'development'
+
+Rake.add_rakelib('rakelib/**')

@@ -1,2 +1,3 @@
 db:
   database: ads_microservice_development
+  password: <%= ENV['ADS_DATABASE_PASSWORD'] %>

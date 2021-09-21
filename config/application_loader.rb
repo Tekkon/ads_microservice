@@ -4,14 +4,30 @@ module ApplicationLoader
   extend self
 
   def load_app!
+    init_dotenv
+    init_config
+    init_db
     require_app
     init_app
   end
 
   private
 
+  def init_dotenv
+    require_file 'config/initializers/dotenv'
+  end
+
+  def init_config
+    require_file 'config/initializers/config'
+  end
+
+  def init_db
+    require_file 'config/initializers/db'
+  end
+
   def require_app
     require_file 'config/application'
+    require_dir 'app/models'
   end
 
   def init_app

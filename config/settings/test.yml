@@ -1,3 +1,4 @@
 db:
   database: ads_microservice_test
+  password: <%= ENV['ADS_DATABASE_PASSWORD'] %>
   max_connections: 1
