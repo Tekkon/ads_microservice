@@ -58,6 +58,25 @@ RSpec.describe AdRoutes, type: :routes do
       end
     end
 
+    context 'missing user_id' do
+      let(:user_id) { nil }
+
+      let(:ad_params) do
+        {
+          title: 'Ad title',
+          description: 'Ad description',
+          city: 'City'
+        }
+      end
+
+      it 'returns an error' do
+        post '/v1', ad: ad_params
+
+        expect(last_response.status).to eq 403
+        expect(response_body['errors']).to include('detail' => 'Доступ к ресурсу ограничен')
+      end
+    end
+
     context 'valid parameters' do
       let(:ad_params) do
         {
