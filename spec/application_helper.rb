@@ -12,4 +12,5 @@ abort('You run test in production mode. Please don\'t do this!') if Application.
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include RouteHelpers, type: :routes
+  config.include ClientHelpers, type: :client
 end

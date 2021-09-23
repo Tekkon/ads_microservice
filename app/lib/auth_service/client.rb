@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require 'dry/initializer'
-#require_relative 'api'
+require_relative 'api'
 
 module AuthService
   class Client
     extend Dry::Initializer[undefined: false]
+    include Api
 
     option :url, default: proc { 'http://localhost:3010/v1' }
     option :connection, default: proc { build_connection }
