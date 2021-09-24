@@ -87,6 +87,8 @@ RSpec.describe AdRoutes, type: :routes do
       end
 
       let(:last_ad) { Ad.last }
+      let(:coords) { [51.2,52.5] }
+      let(:geocoder_response) { { 'meta' => { 'coordinates' => coords } } }
 
       it 'creates a new ad' do
         expect { post '/v1', ad: ad_params }
