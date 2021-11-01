@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'active_job'
 
 ENV['RACK_ENV'] ||= 'test'
 
