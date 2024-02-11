@@ -27,8 +27,8 @@ module ApplicationLoader
 
   def require_app
     require_file 'config/application'
-    require_dir 'app/models'
-    require_dir 'app/serializers'
+    require_file 'app/services/basic_service'
+    require_dir 'app'
   end
 
   def init_app
