@@ -14,14 +14,6 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'rubygems'
-require 'bundler'
-Bundler.require(:default, :development, :test)
-
-require_relative '../app/models/application_record'
-require_all 'app/models'
-require_all 'spec/support'
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
