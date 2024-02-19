@@ -13,4 +13,5 @@ Object.send(:remove_const, :ActiveRecord)
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include RouteHelpers, type: :routes
+  config.include ClientHelpers, type: :client
 end
