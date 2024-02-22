@@ -30,6 +30,9 @@ gem 'dry-validation', '~> 1.5.0'
 gem 'require_all'
 gem 'standalone_migrations'
 
+gem 'rack-ougai', '~> 0.2.1'
+gem 'rack-request-id', '~> 0.0.4'
+
 gem 'dotenv'
 
 group :test do
