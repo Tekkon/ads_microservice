@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-DB = Sequel.connect(Settings.db.to_hash)
+DB = Sequel.connect(Settings.db.url || Settings.db.to_hash)
 
 Sequel::Model.db.extension(:pagination)
 

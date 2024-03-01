@@ -1,0 +1,7 @@
+db:
+  database: ads_microservice_production
+  url: <%= ENV.fetch("ADS_DATABASE_URL") %>
+rabbitmq:
+  host: <%= ENV["RABBITMQ_HOST"] %>
+  username: <%= ENV["RABBITMQ_USER"] %>
+  password: <%= ENV["RABBITMQ_PASSWORD"] %>
