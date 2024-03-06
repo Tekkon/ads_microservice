@@ -34,7 +34,24 @@ services:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
     ports:
       - 5601:5601
+  prom:
+    image: prom/prometheus
+    container_name: prom
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  graphana:
+    image: grafana/grafana
+    container_name: graphana
+    ports:
+      - 3005:3000
+    volumes:
+      - graphana:/var/lib/graphana
 volumes:
+  prometheus:
+  graphana:
   rabbitmq:
   filebeat:
   elasticsearch:
