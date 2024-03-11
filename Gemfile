@@ -11,6 +11,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'sequel', '~> 5.32.0'
 
 gem 'puma', '~> 4.3'
+gem 'prometheus-client', '~> 2.1.0'
 
 gem 'sinatra', '~> 2.0.0', require: 'sinatra/base'
 gem 'sinatra-contrib', '~> 2.0.0'
