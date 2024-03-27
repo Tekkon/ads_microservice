@@ -9,20 +9,27 @@ module Ads
     end
 
     option :user_id
-    option :geocoder_service, default: proc { GeocoderService::Client.new }
+    option :geocoder_service, default: proc { GeocoderService::GrpcClient.new }
 
     attr_reader :ad
 
     def call
       @ad = ::Ad.new(@ad.to_h)
       @ad.user_id = @user_id
+      @ad.lat = coordinates.lat
+      @ad.lon = coordinates.lon
 
       if @ad.valid?
         @ad.save
-        @geocoder_service.geocode_later(@ad)
       else
         fail! @ad.errors
       end
+    end
+
+    private
+
+    def coordinates
+      @coordinates ||= @geocoder_service.geocode(@ad.city)
     end
   end
 end

@@ -7,6 +7,8 @@ ruby '2.7.2'
 
 gem 'bunny', '~> 2.15.0'
 
+gem 'grpc'
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'sequel', '~> 5.32.0'
 
