@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/grpc/grpc.git
+  revision: 8013ffe965753f58b6d98cefad124b8eea25cd11
+  submodules: true
+  specs:
+    grpc (1.63.0.dev)
+      google-protobuf (~> 3.25)
+      googleapis-common-protos-types (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,12 +99,6 @@ GEM
     google-protobuf (3.25.3-arm64-darwin)
     googleapis-common-protos-types (1.14.0)
       google-protobuf (~> 3.18)
-    grpc (1.62.0)
-      google-protobuf (~> 3.25)
-      googleapis-common-protos-types (~> 1.0)
-    grpc (1.62.0-arm64-darwin)
-      google-protobuf (~> 3.25)
-      googleapis-common-protos-types (~> 1.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     loofah (2.12.0)
@@ -199,7 +202,7 @@ DEPENDENCIES
   faraday (~> 1.0.1)
   faraday_middleware (~> 1.0.0)
   fast_jsonapi (~> 1.5)
-  grpc
+  grpc!
   i18n (~> 1.8.2)
   pg (>= 0.18, < 2.0)
   prometheus-client (~> 2.1.0)

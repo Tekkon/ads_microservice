@@ -7,7 +7,6 @@ require_relative 'geocoder_pb'
 module Geocoder
   module GeocoderService
     class Service
-
       include ::GRPC::GenericService
 
       self.marshal_class_method = :encode
