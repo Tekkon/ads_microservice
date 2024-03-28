@@ -1,9 +1,6 @@
 FROM --platform=linux/amd64 ruby:2.7.2-alpine
 
-RUN apk add --no-cache \
-  build-base \
-  tzdata \
-  postgresql-dev
+RUN apk add --no-cache build-base tzdata postgresql-dev git
 
 WORKDIR /usr/src/app
 
