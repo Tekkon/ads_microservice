@@ -2,7 +2,7 @@
 module GeocoderService
   class GrpcClient
     def geocode(city)
-      stub.geocode(Geocoder::City.new(name: city))
+      stub.geocode(Geocoder::Request.new(request_id: Thread.current[:request_id], city: city))
     end
 
     private

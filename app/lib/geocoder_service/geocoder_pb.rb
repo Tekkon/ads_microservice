@@ -5,7 +5,7 @@
 require 'google/protobuf'
 
 
-descriptor_data = "\n\x0egeocoder.proto\x12\x08geocoder\"\x14\n\x04\x43ity\x12\x0c\n\x04name\x18\x01 \x01(\t\"\'\n\x0b\x43oordinates\x12\x0b\n\x03lat\x18\x01 \x01(\x02\x12\x0b\n\x03lon\x18\x02 \x01(\x02\x32\x45\n\x0fGeocoderService\x12\x32\n\x07Geocode\x12\x0e.geocoder.City\x1a\x15.geocoder.Coordinates\"\x00\x62\x06proto3"
+descriptor_data = "\n\x0egeocoder.proto\x12\x08geocoder\"+\n\x07Request\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12\x0c\n\x04\x63ity\x18\x02 \x01(\t\"\'\n\x0b\x43oordinates\x12\x0b\n\x03lat\x18\x01 \x01(\x02\x12\x0b\n\x03lon\x18\x02 \x01(\x02\x32H\n\x0fGeocoderService\x12\x35\n\x07Geocode\x12\x11.geocoder.Request\x1a\x15.geocoder.Coordinates\"\x00\x62\x06proto3"
 
 pool = Google::Protobuf::DescriptorPool.generated_pool
 
@@ -32,6 +32,6 @@ rescue TypeError
 end
 
 module Geocoder
-  City = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("geocoder.City").msgclass
+  Request = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("geocoder.Request").msgclass
   Coordinates = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("geocoder.Coordinates").msgclass
 end

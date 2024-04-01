@@ -2,18 +2,19 @@
 # Source: geocoder.proto for package 'geocoder'
 
 require 'grpc'
-require_relative 'geocoder_pb'
+require_relative './geocoder_pb'
 
 module Geocoder
   module GeocoderService
     class Service
+
       include ::GRPC::GenericService
 
       self.marshal_class_method = :encode
       self.unmarshal_class_method = :decode
       self.service_name = 'geocoder.GeocoderService'
 
-      rpc :Geocode, ::Geocoder::City, ::Geocoder::Coordinates
+      rpc :Geocode, ::Geocoder::Request, ::Geocoder::Coordinates
     end
 
     Stub = Service.rpc_stub_class
